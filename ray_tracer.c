@@ -6,7 +6,7 @@
 /*   By: avenzel <avenzel@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 15:55:19 by avenzel           #+#    #+#             */
-/*   Updated: 2017/05/22 16:21:21 by avenzel          ###   ########.fr       */
+/*   Updated: 2017/05/22 16:51:41 by avenzel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void		ray_trace(int x, int y, t_win *win)
 	rgb[0] = 0;
 	rgb[1] = 0;
 	rgb[2] = 0;
-	while (coef > .0 && ++level < 15)
+	while (coef > .0 && ++level < 8)
 	{
 		if (!inwhile(rgb, &coef, &r, win))
 			break ;

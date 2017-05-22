@@ -6,7 +6,7 @@
 /*   By: avenzel <avenzel@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 12:56:50 by avenzel           #+#    #+#             */
-/*   Updated: 2017/05/22 16:12:13 by avenzel          ###   ########.fr       */
+/*   Updated: 2017/05/22 20:52:51 by avenzel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	init_spheres(t_object *sph1, t_object *sph2)
 {
 	sph1->type = 1;
-	sph1->pos.x = 190;
-	sph1->pos.y = 120;
+	sph1->pos.x = 390;
+	sph1->pos.y = 320;
 	sph1->pos.z = 410;
 	sph1->radius = 100;
 	sph1->diffuse[0] = .0;
@@ -65,7 +65,7 @@ void	init_cylinder(t_object *cl1)
 	cl1->type = 3;
 	cl1->pos.x = 300;
 	cl1->pos.y = 200;
-	cl1->pos.z = 1800;
+	cl1->pos.z = 1000;
 	cl1->direct.x = 0;
 	cl1->direct.y = 1;
 	cl1->direct.z = 0;
@@ -103,8 +103,8 @@ void	wininit(t_win *win)
 	init_planes(&win->object[2], &win->object[3]);
 	init_cylinder(&win->object[4]);
 	init_cone(&win->object[5]);
-	init_lights(&win->light[0], 100, 100, -300);
-	init_lights(&win->light[1], 700, 600, -250);
+	init_lights(&win->light[0], 100, 100, -310);
+	init_lights(&win->light[1], 900, 600, -510);
 	win->sx = 0;
 	win->sy = 0;
 	win->dx = 0;

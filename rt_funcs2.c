@@ -6,7 +6,7 @@
 /*   By: avenzel <avenzel@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 13:25:10 by avenzel           #+#    #+#             */
-/*   Updated: 2017/05/22 13:58:35 by avenzel          ###   ########.fr       */
+/*   Updated: 2017/05/22 20:22:36 by avenzel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	find_light_value(double *rgb, int obj, t_vector *nsn, t_win *win)
 		if (t <= 0.0f)
 			continue ;
 		lightray.start = nsn[0];
-		lightray.direct = v_scale((1 / t), &dist);
+		lightray.direct = v_scale((1.0 / t), &dist);
 		inshadow = calc_shadows(t, &lightray, win);
 		if (!inshadow)
 			calc_pix_color(rgb, v_dot(&lightray.direct, &nsn[1]),

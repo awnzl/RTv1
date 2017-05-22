@@ -6,7 +6,7 @@
 /*   By: avenzel <avenzel@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 14:17:38 by avenzel           #+#    #+#             */
-/*   Updated: 2017/05/22 14:00:45 by avenzel          ###   ########.fr       */
+/*   Updated: 2017/05/22 18:51:30 by avenzel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ double		intersect_sphere(t_ray *r, t_object *s, double *nearest_t)
 		t[1] = (-b - discr) / 2;
 		if (t[0] > t[1])
 			t[0] = t[1];
-		if ((t[0] > 0.001f) && (t[0] < *nearest_t))
+		if ((t[0] > 0.001f) && (t[0] <= *nearest_t))
 		{
 			*nearest_t = t[0];
 			return (1);
@@ -84,7 +84,7 @@ double		intersect_plane(t_ray *r, t_object *p, double *nearest_t)
 	{
 		tmpv = v_sub(&p->pos, &r->start);
 		t = v_dot(&p->n, &tmpv) / nd;
-		if (t > 0.001f && t < *nearest_t)
+		if (t > 0.001f && t <= *nearest_t)
 		{
 			*nearest_t = t;
 			return (1);

@@ -6,7 +6,7 @@
 /*   By: avenzel <avenzel@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 13:28:22 by avenzel           #+#    #+#             */
-/*   Updated: 2017/05/22 13:35:37 by avenzel          ###   ########.fr       */
+/*   Updated: 2017/05/22 18:58:48 by avenzel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ double		intersect_cylinder(t_ray *r, t_object *c, double *nearest_t)
 		t[1] = (-b - sqrtdiscr) / 2.;
 		if (t[0] > t[1])
 			t[0] = t[1];
-		if ((t[0] > 0.001f) && (t[0] < *nearest_t))
+		if ((t[0] > 0.001f) && (t[0] <= *nearest_t))
 		{
 			*nearest_t = t[0];
 			return (1);
@@ -121,7 +121,7 @@ double		intersect_cone(t_ray *r, t_object *cn, double *nearest_t)
 		t[1] = (-b - discr) / (2);
 		if (t[0] > t[1])
 			t[0] = t[1];
-		if ((t[0] > 0.001f) && (t[0] < *nearest_t))
+		if ((t[0] > 0.001f) && (t[0] <= *nearest_t))
 		{
 			*nearest_t = t[0];
 			return (1);
