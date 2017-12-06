@@ -6,7 +6,7 @@
 /*   By: avenzel <avenzel@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 14:18:52 by avenzel           #+#    #+#             */
-/*   Updated: 2017/05/22 16:20:22 by avenzel          ###   ########.fr       */
+/*   Updated: 2017/12/06 14:16:05 by avenzel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@
 # include <pthread.h>
 # include <unistd.h>
 
-# if defined(__linux__)
-#  include "minilibx/mlx.h"
-# elif defined(__unix__) || defined(__APPLE__) && defined(__MACH__)
-#  include <mlx.h>
-# endif
+# include "mlx.h"
 
 # define OBJECTS 6
 # define LIGHTS 2

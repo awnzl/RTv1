@@ -6,7 +6,7 @@
 #    By: avenzel <avenzel@student.unit.ua>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/24 14:14:44 by avenzel           #+#    #+#              #
-#    Updated: 2017/05/22 13:43:53 by avenzel          ###   ########.fr        #
+#    Updated: 2017/12/06 14:16:48 by avenzel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,18 +20,29 @@ OBJ		= $(SRC:.c=.o)
 CC		= gcc
 FLG		= -Wall -Wextra -Werror
 ifeq ($(UNAME), Darwin)
-ATTR	= -O3 -lmlx -lpthread -framework OpenGL -framework AppKit
+ATTR	= -O3 -L ./minilibx_macos/ -lmlx -lpthread -framework OpenGL -framework AppKit
+MLX_INC	= -I ./minilibx_macos/
 endif
 ifeq ($(UNAME), Linux)
-ATTR	= minilibx/libmlx.a -O3 -lpthread -lX11 -lXext -lm
+ATTR	= -O3 -L ./minilibx_linux/ -lmlx -lpthread -lX11 -lXext -lm
+MLX_INC	= -I ./minilibx_linux/
 endif
 all		: $(NAME)
 
-$(NAME)	: $(OBJ)
+$(NAME)	: $(OBJ) $(MLX)
 	$(CC) $(FLG) $(OBJ) -o $(NAME) $(ATTR)
 
+ifeq ($(UNAME), Darwin)
+$(MLX)	:
+	@make -C minilibx_macos
+endif
+ifeq ($(UNAME), Linux)
+$(MLX)	:
+	@make -C minilibx_linux
+endif
+
 .c.o:
-	@$(CC) -c -o $@ $<
+	@$(CC) $(MLX_INC) -c -o $@ $<
 
 clean	: 
 	rm -f $(OBJ)
